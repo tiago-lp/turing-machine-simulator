@@ -1,5 +1,5 @@
-# Turing Machine Simulator
 # -*- coding: utf-8 -*-
+# Turing Machine Simulator
 
 from Tkinter import tkFileDialog
 
@@ -11,7 +11,7 @@ if __name__ == "__main__":
 
 while True:
 	print("Choose an option:")
-	print("[1] To submit your machine")
+	print("[1] To submit your own machine")
 	print("[2] To use some built-in machine")
 	print("[3] Exit")
 
