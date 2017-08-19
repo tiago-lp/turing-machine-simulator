@@ -4,7 +4,7 @@ Projeto da disciplina Teoria da Computação do curso de Ciência da Computaçã
 O projeto tem como foco a implementação de um simulador de máquina de Turing. Por meio de decisão consensual iremos implementar usando a linguagem de programaçao Python.
 
 Os membros são:
- - Emanuel Joívo Bezerra Martins
+ - Emanuel Joivo Bezerra Martins
  - Emerson Leonardo Lucena
  - João Paulo Nunes Ribeiro dos Santos
  - José Ivan
