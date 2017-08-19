@@ -23,19 +23,23 @@ def invalid_option():
 	print("")
 
 def optionOne():
-	pass
+	
 
 def optionTwo():
 	examples_machines()
 	example = int(raw_input())
 
 	if (example == 1):
+		# the machine process the file and the input
 		arq_one = open('examples_machines/conversion_binary.txt', 'r')
-		machine_one = arq_one.read()			
+		
+		input_word = raw_input()
 
 	elif (example == 2):
+		# the machine process the file and the input
 		arq_two = open('examples_machines/palindrome_detector.txt', 'r')
-		machine_two = arq_two.read()					
+		
+		input_word = raw_input() 		
 
 	else:
 		invalid_option()	
@@ -48,15 +52,15 @@ def main():
 		if (option == 1):
 			# open file and process to build a machine		
 			optionOne()
-			break	
+			break
 
 		elif (option == 2):
 			optionTwo()
 			break
 
 		elif (option == 3):
-			break
-	
+			break	
+
 		else:
 			invalid_option()
 			
