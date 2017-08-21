@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # Turing Machine Simulator
 
-from Tkinter import *
+from tkFileDialog import askopenfile
 
 def menu():
 	print("Choose an option:")
@@ -17,13 +17,37 @@ def examples_machines():
 	print("[2] - Palindrome detector")
 	print("")
 
-def invalid_option():
+def invalid_operation():
 	print("Something is wrong...")
 	print("... maybe you must try again choosing one of valid options")
 	print("")
 
+def interrupted_execution():
+	print("Do you want to choose another option? [Y/N]")
+	interrupted = False
+
+	operation = raw_input()
+	
+	if (operation.lower() == 'y'):
+		run = True
+
+	return interrupted
+
+def run_step_by_step():
+	print("You want see the step by step? [Y/N]")	
+	run = False
+	
+	operation = raw_input()
+	
+	if (operation.lower() == 'y'):
+		run = True
+
+	return run
+
 def optionOne():
-	pass	
+	print("Choose the file corresponding to the machine!")
+	machine = askopenfile()	
+
 
 def optionTwo():
 	examples_machines()
@@ -33,36 +57,47 @@ def optionTwo():
 		# the machine process the file and the input
 		arq_one = open('examples_machines/conversion_binary.txt', 'r')
 		
+		print("Enter the input string") # the machine read a input and process
 		input_word = raw_input()
+
+		if (run_step_by_step()):
+			print("Step by Step") # call the machine step by step
 
 	elif (example == 2):
 		# the machine process the file and the input
 		arq_two = open('examples_machines/palindrome_detector.txt', 'r')
 		
-		input_word = raw_input() 		
+		print("Enter the input string") # the machine read a input and process
+		input_word = raw_input() 
+		
 
+		if (run_step_by_step()):
+			print("Step by Step") # call the machine step by step
+		
 	else:
-		invalid_option()	
+		invalid_operation()	
 
 def main():
 	while True:
 		menu()
-		option = int(raw_input())
+		operation = int(raw_input())
 
-		if (option == 1):
+		if (operation == 1):
 			# open file and process to build a machine		
 			optionOne()
-			break
+			if (interrupted_execution()):
+				break
 
-		elif (option == 2):
+		elif (operation == 2):
 			optionTwo()
-			break
+			if (interrupted_execution()):
+				break
 
-		elif (option == 3):
+		elif (operation == 3):
 			break	
 
 		else:
-			invalid_option()
+			invalid_operation()
 			
 
 if __name__ == "__main__":
