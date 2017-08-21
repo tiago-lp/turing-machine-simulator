@@ -3,6 +3,7 @@
 
 from tkFileDialog import askopenfile
 
+# Shows the principal menu
 def menu():
 	print("Choose an option:")
 	print("	[1] - Submit your own machine")
@@ -10,6 +11,7 @@ def menu():
 	print("	[3] - Exit")
 	print("")
 
+# Shows the menu of chooses of the built-in machines
 def examples_machines():
 	print("Load an example program:")
 	print("")
@@ -24,12 +26,14 @@ def invalid_operation():
 
 def interrupted_execution():
 	print("Do you want to choose another option? [Y/N]")
-	interrupted = False
+	interrupted = True
 
 	operation = raw_input()
 	
 	if (operation.lower() == 'y'):
-		run = True
+		interrupted = False
+	elif (operation.lower != 'n'):
+		invalid_operation()
 
 	return interrupted
 
@@ -41,19 +45,29 @@ def run_step_by_step():
 	
 	if (operation.lower() == 'y'):
 		run = True
+	elif (operation.lower != 'n'):
+		invalid_operation()
 
 	return run
 
-def optionOne():
+def option_one():
+	# Open a dialog box to choose of the corresponding machine
 	print("Choose the file corresponding to the machine!")
-	machine = askopenfile()	
+	machine = askopenfile()
+	
+	print("Enter the input string") # the machine read a input and process
+	input_word = raw_input() 	
 
+	if (run_step_by_step()):
+			print("Running step-by-step") # if necessary, call the machine step by step
 
-def optionTwo():
+def option_two():
+
 	examples_machines()
-	example = int(raw_input())
 
-	if (example == 1):
+	chosen_example = raw_input()
+
+	if (chosen_example == '1'):
 		# the machine process the file and the input
 		arq_one = open('examples_machines/conversion_binary.txt', 'r')
 		
@@ -61,9 +75,9 @@ def optionTwo():
 		input_word = raw_input()
 
 		if (run_step_by_step()):
-			print("Step by Step") # call the machine step by step
+			print("Step by Step") # if necessary, call the machine step by step
 
-	elif (example == 2):
+	elif (chosen_example == '2'):
 		# the machine process the file and the input
 		arq_two = open('examples_machines/palindrome_detector.txt', 'r')
 		
@@ -72,33 +86,38 @@ def optionTwo():
 		
 
 		if (run_step_by_step()):
-			print("Step by Step") # call the machine step by step
+			print("Running step-by-step") # if necessary, call the machine step by step
 		
 	else:
 		invalid_operation()	
 
 def main():
 	while True:
+		
 		menu()
-		operation = int(raw_input())
 
-		if (operation == 1):
+		operation = raw_input()
+
+		if (operation == '1'):
 			# open file and process to build a machine		
-			optionOne()
+			option_one()
 			if (interrupted_execution()):
+				print("end of execution")
 				break
 
-		elif (operation == 2):
-			optionTwo()
+		elif (operation == '2'):
+			option_two()
 			if (interrupted_execution()):
+				print("end of execution")
 				break
 
-		elif (operation == 3):
+
+		elif (operation == '3'):
+			print("end of execution")
 			break	
 
 		else:
-			invalid_operation()
-			
+			invalid_operation()			
 
 if __name__ == "__main__":
 	main()
