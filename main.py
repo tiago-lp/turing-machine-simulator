@@ -36,8 +36,9 @@ def interrupted_execution():
 	
 	if (operation.lower() == 'y'):
 		interrupted = False
-	elif (operation.lower == 'n'):
-		invalid_operation()
+	
+	if (interrupted == True):
+		print("End of execution!")
 
 	return interrupted
 
@@ -122,25 +123,22 @@ def main():
 		operation = raw_input()
 
 		if (operation == '1'):
-			# Open file and process to build a machine.		
 			option_one()
 			if (interrupted_execution()):
-				print("end of execution")
 				break
 
 		elif (operation == '2'):
 			option_two()
 			if (interrupted_execution()):
-				print("end of execution")
 				break
 
 
 		elif (operation == '3'):
-			print("end of execution")
 			break	
 
 		else:
-			invalid_operation()			
+			invalid_operation()	
+
 
 if __name__ == "__main__":
 	main()
