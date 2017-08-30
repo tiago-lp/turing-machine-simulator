@@ -33,10 +33,10 @@ def interrupted_execution():
 	interrupted = True
 
 	operation = raw_input()
-	
+
 	if (operation.lower() == 'y'):
 		interrupted = False
-	
+
 	if (interrupted == True):
 		print("End of execution!")
 
@@ -44,13 +44,13 @@ def interrupted_execution():
 
 '''Ask the user if he wants sees the step by step of a turing machine running'''
 def run_step_by_step():
-	print("You want see the step by step? [Y/N]")	
+	print("You want see the step by step? [Y/N]")
 	run = False
-	
+
 	operation = raw_input()
-	
+
 	if (operation.lower() == 'y'):
-		run = True	
+		run = True
 
 	return run
 
@@ -62,8 +62,8 @@ def openfile():
 	file = askopenfile(initialdir = environ["HOME"], parent=main_window)
 	if file != None:
     		data = file.read()
-    
-    	file.close()  
+
+    	file.close()
     	return data
 
 '''This option provides the user to send his own machine, if it has been described correctly in the syntax
@@ -72,14 +72,14 @@ def option_one():
 	# Open a dialog box to choose of the corresponding machine
 	print("Choose the file corresponding to the machine!")
 	machine = openfile()
-	
+
 	# The machine read a input and process.
-	print("Enter the input string") 
-	input_word = raw_input() 	
+	print("Enter the input string")
+	input_word = raw_input()
 
 	# If necessary, call the machine step by step.
 	if (run_step_by_step()):
-			print("Running step-by-step") 
+			print("Running step-by-step")
 
 '''This option provides the user to choose one of built-in's machines'''
 def option_two():
@@ -91,33 +91,34 @@ def option_two():
 	if (chosen_example == '1'):
 		# The machine process the file and the input.
 		arq_one = open('examples_machines/conversion_binary.txt', 'r')
-		
+
 		# The machine read a input and process
-		print("Enter the input string") 
+		print("Enter the input string")
 		input_word = raw_input()
 
 		# If necessary, call the machine step by step.
 		if (run_step_by_step()):
-			print("Step by Step") 
+			print(arq_one.read())
+			print("Step by Step")
 
 	elif (chosen_example == '2'):
 		# The machine process the file and the input.
 		arq_two = open('examples_machines/palindrome_detector.txt', 'r')
-		
+
 		# The machine read a input and process.
-		print("Enter the input string") 
-		input_word = raw_input() 		
+		print("Enter the input string")
+		input_word = raw_input()
 
 		# If necessary, call the machine step by step.
 		if (run_step_by_step()):
-			print("Running step-by-step") 
-		
+			print("Running step-by-step")
+
 	else:
-		invalid_operation()	
+		invalid_operation()
 
 def main():
 	while True:
-		
+
 		menu()
 
 		operation = raw_input()
@@ -134,10 +135,10 @@ def main():
 
 
 		elif (operation == '3'):
-			break	
+			break
 
 		else:
-			invalid_operation()	
+			invalid_operation()
 
 
 if __name__ == "__main__":

@@ -32,6 +32,4 @@
 21 _ _ l 21
 21 * * l 21a
 21a * * l 21a
-21a _ _ r accept
-
-accept * : r *
+21a _ _ r halt

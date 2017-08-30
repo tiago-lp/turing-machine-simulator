@@ -1,3 +1,4 @@
+from dictionary import generateDictionary
 '''
 transition function delta: dictionary {(q0, r):(q1, w, D)}
 q0 -> old state
@@ -28,14 +29,24 @@ def simula():
 
     #tape precisa ser uma lista de caracteres
     #por exemplo tape = ['a', 'a', 'Z', 'b', '_', '*']
-    tape = list("aaaaab")
+    # tape = list("aaaaab")
+    #tape para bynary to decimal e delta para binary to decimal
+    # tape = list('1110101') # result == 117
+    # delta = generateDictionary(open('./../examples_machines/binary_decimal.txt', 'r'))
+
+    #tape para palindrome
+    tape = list('110011') # result == true
+    delta = generateDictionary(open('./../examples_machines/palindrome_detector.txt', 'r'))
 
     #delta precisa assumir esse formato (descrito no inicio do codigo)
     #delta[(estado, leitura)] = (novo_estado, escrita, direcao_movimento)
-    delta[("0", 'a')] = ("*", 'c', 'r')
-    delta[("0", 'b')] = ("voltando", 'd', 'l')
-    delta[("voltando", 'c')] = ("*", '*', 'l')
-    delta[("voltando", '_')] = ("halt-deubom", 'e', 'r')
+    # delta[("0", 'a')] = ("*", 'c', 'r')
+    # delta[("0", 'b')] = ("voltando", 'd', 'l')
+    # delta[("voltando", 'c')] = ("*", '*', 'l')
+    # delta[("voltando", '_')] = ("halt-deubom", 'e', 'r')
+    #
+
+    # print(test())
 
 def run():
     current_state = q_start
