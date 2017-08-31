@@ -8,10 +8,6 @@ w  -> write on tape
 D  -> direction to move (L / D / *)
 '''
 
-delta = {}
-q_start = "0"
-tape = []
-
 #state needs to be a string
 def is_halt_state(state):
     if len(state) < 4:
@@ -19,38 +15,10 @@ def is_halt_state(state):
     else:
         return state[0:4] == "halt" #starts with "halt"
 
-
-''' apenas para testar. PODE APAGAR DEPOIS
- a intencao eh q dps do front-end estar codado, essa funcao seja apagada
- e o delta{} e tape[] sejam preenchidos automaticamente '''
-def simula():
-    global tape
-    global delta
-
-    #tape precisa ser uma lista de caracteres
-    #por exemplo tape = ['a', 'a', 'Z', 'b', '_', '*']
-    # tape = list("aaaaab")
-    #tape para bynary to decimal e delta para binary to decimal
-    # tape = list('1110101') # result == 117
-    # delta = generateDictionary(open('./../examples_machines/binary_decimal.txt', 'r'))
-
-    #tape para palindrome
-    tape = list('110011') # result == true
-    delta = generateDictionary(open('./../examples_machines/palindrome_detector.txt', 'r'))
-
-    #delta precisa assumir esse formato (descrito no inicio do codigo)
-    #delta[(estado, leitura)] = (novo_estado, escrita, direcao_movimento)
-    # delta[("0", 'a')] = ("*", 'c', 'r')
-    # delta[("0", 'b')] = ("voltando", 'd', 'l')
-    # delta[("voltando", 'c')] = ("*", '*', 'l')
-    # delta[("voltando", '_')] = ("halt-deubom", 'e', 'r')
-    #
-
-    # print(test())
-
-def run():
-    current_state = q_start
-    current_tape = tape
+def run(tape, machine):
+    delta = generateDictionary(machine)
+    current_state = "0"
+    current_tape = list(tape)
     tape_position = 0
 
     while not is_halt_state(current_state):
@@ -83,11 +51,7 @@ def run():
             print "Error!"
             break
 
-    ## apos finalizar a saida no terminal, apagar estes prints
-    print "Done"
+    print "State:", current_state, " Tape:", "".join(current_state), " Position:", tape_position
+    print "\nDone"
     print "Final State:", current_state
     print "Final Tape:", "".join(current_tape)
-
-if __name__ == "__main__":
-    simula() ## PODE APAGAR DEPOIS
-    run()

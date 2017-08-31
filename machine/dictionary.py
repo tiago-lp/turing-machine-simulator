@@ -1,5 +1,5 @@
 def generateDictionary(arq):
-    lines = arq.read().split('\n')
+    lines = arq.split('\n')
     dictionary = {}
     for i in lines :
         if (len(i) != 0) :
