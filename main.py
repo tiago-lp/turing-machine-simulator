@@ -51,6 +51,7 @@ def run_step_by_step():
 
 	if (operation.lower() == 'y'):
 		run = True
+		print "\nType END to skip step by step \n"
 
 	return run
 
@@ -88,10 +89,10 @@ def option_one():
 		"""
 		# If necessary, call the machine step by step.
 		if (run_step_by_step()):
-				print("Running step-by-step")
-				turing_machine.run(input_word, machine)
+			print("Running step-by-step")
+			turing_machine.run(input_word, machine, True)
 		else:
-			turing_machine.run(input_word, machine)
+			turing_machine.run(input_word, machine, False)
 			
 
 '''This option provides the user to choose one of built-in's machines'''
@@ -118,10 +119,10 @@ def option_two():
 	input_word = raw_input()
 
 	if (run_step_by_step()):
-			print("Running step-by-step")
-			turing_machine.run(input_word, machine)
+		print("Running step-by-step")
+		turing_machine.run(input_word, machine, True)
 	else:
-		turing_machine.run(input_word, machine)
+		turing_machine.run(input_word, machine, False)
 
 def main():
 	while True:
