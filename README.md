@@ -11,20 +11,18 @@ Os membros são:
  - Tiago Lima Pereira
 
 ## Pré-requisitos
-	```
-	Python 2.7
-	```
+- Python 2.7	
 
 ## Instruções de inicialização
 	
-	Não é necessário nenhuma instalação. Para iniciar o simulador basta digitar dentro do diretório do projeto numa janela de terminal
-	```
-	python main.py
-	```
-	Ou, se estiver usando Windows basta dá dois cliques no mesmo arquivo.
+Não é necessário nenhuma instalação. Para iniciar o simulador basta digitar dentro do diretório do projeto numa janela de terminal
+```
+python main.py
+```
+Ou, se estiver usando Windows basta dá dois cliques no mesmo arquivo.
 
 ### Instruções de uso
 	
-	- Se quer utilizar uma máquina própria, basta adicionar o arquivo.txt na pasta 'my_machines' do projeto. Ao iniciar o simulador e selecionada a primeira opção, você verá uma lista de todas as máquinas adicionadas.
+- Se quer utilizar uma máquina própria, basta adicionar o arquivo.txt na pasta 'my_machines' do projeto. Ao iniciar o simulador e selecionada a primeira opção, você verá uma lista de todas as máquinas adicionadas.
 
-	- Se quer visualizar um dos exemplos 'built-in', basta selecionar a segunda opção e serão listados os disponíveis.
+- Se quer visualizar um dos exemplos 'built-in', basta selecionar a segunda opção e serão listados os disponíveis.
