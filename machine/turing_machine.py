@@ -18,14 +18,14 @@ def is_halt_state(state):
 def run(tape, machine, step_by_step):
     delta = generateDictionary(machine)
     current_state = "0"
-    current_tape = list(tape)
+    current_tape = list(tape.replace(' ','_'))
     tape_position = 0
     steps = 0
 
     while not is_halt_state(current_state):
 		print "State: %s\tTape: %s\tPosition: %d\tSteps: %d" % (current_state, "".join(current_tape), tape_position, steps),
 		steps += 1
-		
+
 		if step_by_step:
 			option = raw_input()
 			if option.lower() == "end":
@@ -52,7 +52,7 @@ def run(tape, machine, step_by_step):
 				tape_position += 1
 				if tape_position == len(current_tape): #increase tape at the end
 					current_tape.append('_')
-			
+
 		except KeyError:
 			# Transition doesnt exist!!
 			print "Error!"
