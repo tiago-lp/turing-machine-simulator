@@ -14,10 +14,18 @@ def open_file(machine_number):
 	return file
 
 def path_machines():
-	return os.getcwd()+'/my_machines/'
-
+	try:
+		return os.getcwd()+'/my_machines/'	
+	except OSError:
+		os.mkdir('my_machines')
+		return os.getcwd()+'/my_machines/'
+	
 def list_machines():
-	return os.listdir(path_machines())
+	try:
+		return os.listdir(path_machines())
+	except OSError:
+		os.mkdir('my_machines')
+		return os.listdir(path_machines())
 
 def has_machines():
 	has = True
