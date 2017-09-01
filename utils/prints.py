@@ -39,6 +39,7 @@ def run_stepbystep():
 		print("\nType END to skip step by step \n")
 		print("Running step-by-step...\n")
 
+	return run
 '''
 Ask to the user if it's time to close the program
 '''
