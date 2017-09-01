@@ -1,6 +1,6 @@
 # Turing Machine Simulator
 
-import sys
+from os import sys
 from machine import turing_machine
 from utils import prints, files
 
@@ -20,10 +20,16 @@ This option provides the user to send his own machine,
 if it has been described correctly in the syntax
 '''
 def option_one():
-	# Open a dialog box to choose of the corresponding machine
-	print("Specify the path of the machine file\n")
-	path = raw_input()
-	machine = files.open_file(path)
+	machine = None
+
+	if (files.has_machines()):
+		files.my_machines()
+
+		print("\nSelect your file number:\n")
+		chosen_machine = raw_input()
+		machine = files.open_file(chosen_machine)	
+	else:
+		prints.machines_not_found()
 
 	if (machine):
 		# The machine read a input and process.
@@ -76,7 +82,7 @@ def main():
 			if (prints.interrupted_execution()):
 				break
 		elif (operation == '3'):
-			break
+			break		
 		else:
 			prints.invalid_operation()
 

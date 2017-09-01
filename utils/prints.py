@@ -5,7 +5,7 @@ Shows the principal menu.
 '''
 def menu():
 	print("\nChoose an option:")
-	print("	[1] - Submit your own machine")
+	print("	[1] - Use your own machine")
 	print("	[2] - Load some built-in machine")
 	print("	[3] - Exit\n")
 
@@ -40,6 +40,10 @@ def run_stepbystep():
 		print("Running step-by-step...\n")
 
 	return run
+
+def machines_not_found():
+	print "\nOps!! No machines here. \nFor more information see README.md"
+
 '''
 Ask to the user if it's time to close the program
 '''
